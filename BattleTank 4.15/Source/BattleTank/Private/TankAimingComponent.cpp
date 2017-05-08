@@ -54,10 +54,13 @@ void UTankAimingComponent::AimAt(FVector WorldSpaceAim, float LaunchSpeed) {
 	if(bHaveAimSolution){
 		//Calculate the OutLaunchVelocity
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
-
 		MoveBarrelTowards(AimDirection);
+
+		UE_LOG(LogTemp, Warning, TEXT("Solution Found"));
+
 	} else {
-		//Cant Find a Result
+		UE_LOG(LogTemp, Warning, TEXT("Can't find solution"));
+
 		return;
 	}
 }
